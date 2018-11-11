@@ -1,4 +1,4 @@
-from flask import Flask, make_response, redirect, render_template
+from flask import Flask, make_response, redirect, render_template, request
 from flask_script import Manager
 
 
@@ -7,9 +7,11 @@ manager = Manager(app)
 
 
 @app.route('/yay/<smth>')
-def index(smth):
-    response = make_response(f'{smth} with cookie')
+def yay(smth):
+    browser = request.user_agent.browser
+    response = make_response(f'{smth} with cookie on {browser}')
     response.set_cookie('my_cookie', '666')
+    # render_template()
     return response
 
 
