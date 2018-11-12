@@ -1,9 +1,13 @@
+from datetime import datetime
 from flask import Flask, make_response, redirect, render_template, request
 from flask_script import Manager
-
+from flask_bootstrap import Bootstrap
+from flask_moment import Moment
 
 app = Flask(__name__)
 manager = Manager(app)
+bootstrap = Bootstrap(app)
+moment = Moment(app)
 
 
 @app.route('/yay/<smth>')
@@ -20,14 +24,15 @@ def google():
     return redirect('http://google.com')
 
 
-@app.route('/err')
-def err():
-    return 'error', 400
+@app.route('/time')
+def time():
+    return render_template('index.html',
+                           current_time=datetime.utcnow())
 
 
 @app.errorhandler(404)
-def not_found(a):
-    print(a)
+def not_found(e):
+    print('***', e)
     return render_template('404.html'), 404
 
 
