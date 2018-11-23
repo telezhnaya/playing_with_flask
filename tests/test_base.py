@@ -1,26 +1,21 @@
-from app import create_app
-from pytest import fixture
+import pytest
 
-# Usage:
-# python -m pytest
+from example.app import create_app
 
 
-class TestBasics:
-    # usage with context
-    @fixture(autouse=True)
-    def run_around_tests(self):
-        # Before tests
-        self.app = create_app('testing')
-        self.app_context = self.app.app_context()
-        self.app_context.push()
-        yield
-        # After tests
-        self.app_context.pop()
+@pytest.fixture(scope='module')
+def app():
+    app = create_app()
+    app.debug = True
+    app.testing = True
 
-    def test_app_exists(self):
-        assert self.app_context
+    with app.app_context():
+        yield app
 
 
-# usage without context
-def test_qw():
+def test_app_exists(app):
+    assert app.debug
+
+
+def test_simple():
     assert 42 == 42

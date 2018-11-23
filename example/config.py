@@ -1,11 +1,11 @@
 import os
+import pathlib
 
-
-basedir = os.path.abspath(os.path.dirname(__file__))
+BASEDIR = pathlib.Path(__file__).parent
 
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'hard to guess string')
 
     @staticmethod
     def init_app(app):
