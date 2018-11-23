@@ -1,7 +1,10 @@
 from datetime import datetime as dt
-from . import main
+from flask import Blueprint
 
 
-@main.route('/time')
+routes = Blueprint('routes', __name__)
+
+
+@routes.route('/time')
 def time():
     return str(dt.utcnow())
