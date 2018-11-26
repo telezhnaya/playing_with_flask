@@ -1,3 +1,2 @@
 pytest==4.0.0
-Flask_Script==2.0.6
 Flask==1.0.2
