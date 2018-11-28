@@ -1,3 +1,5 @@
+# flake8: noqa
+
 from pytest import fixture
 from app.app import create_app
 

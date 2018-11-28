@@ -1,7 +1,7 @@
 from flask import Flask
 
-from app.db import db
 from app.config import config
+from app.db import db
 from app.main.routes import routes
 
 

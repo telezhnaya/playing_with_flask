@@ -2,8 +2,7 @@ from datetime import datetime as dt
 
 from flask import Blueprint
 
-from app.db import db
-from app.models.models import User, Meme
+from app.models.models import User
 
 routes = Blueprint('routes', __name__)
 
@@ -23,8 +22,10 @@ def users():
 #     db.drop_all()
 #     db.create_all()
 #
-#     meme1 = Meme(url='https://memepedia.ru/wp-content/uploads/2017/04/Philosoraptor.jpg')
-#     meme2 = Meme(url='http://weknowmemes.com/wp-content/uploads/2011/09/sucess-kid-mom-took-my-nose-got-it-back.jpg')
+#     meme1 = Meme(url='https://memepedia.ru/wp-content/uploads/2017/04/'
+#                      'Philosoraptor.jpg')
+#     meme2 = Meme(url='http://weknowmemes.com/wp-content/uploads/2011/09/'
+#                      'sucess-kid-mom-took-my-nose-got-it-back.jpg')
 #     db.session.add_all({meme1, meme2})
 #     db.session.commit()
 #
