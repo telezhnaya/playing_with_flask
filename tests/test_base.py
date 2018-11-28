@@ -1,5 +1,5 @@
-from app import create_app
 from pytest import fixture
+from app.app import create_app
 
 # Usage:
 # python -m pytest

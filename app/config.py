@@ -1,15 +1,14 @@
 import os
 
-
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
+    SECRET_KEY = os.environ['SECRET_KEY']
 
-    @staticmethod
-    def init_app(app):
-        pass
+    @classmethod
+    def init_app(cls, app):
+        """ """
 
 
 class DevelopmentConfig(Config):
@@ -21,7 +20,7 @@ class TestingConfig(Config):
 
 
 class ProductionConfig(Config):
-    pass
+    """ """
 
 
 config = {
@@ -29,5 +28,5 @@ config = {
     'testing': TestingConfig,
     'production': ProductionConfig,
 
-    'default': DevelopmentConfig
+    'default': DevelopmentConfig,
 }
