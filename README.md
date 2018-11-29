@@ -16,6 +16,7 @@ and test the connection: it should work. Do not forget to fill in env variables.
 
 To switch on linter:
 ```
+pip install wemake-python-styleguide
 flake8 --install-hook git
 git config --bool flake8.strict true
 ```
